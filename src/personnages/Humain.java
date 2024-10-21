@@ -22,8 +22,15 @@ public class Humain {
 		return argent;
 	}
 	
+	
+	
+	public String getNom() {
+		return nom;
+	}
+
+
 	protected void parler(String texte) {
-		System.out.println(texte);
+		System.out.println("(" + nom + ")" + texte);
 	}
 	
 	public void direBonjour() {
