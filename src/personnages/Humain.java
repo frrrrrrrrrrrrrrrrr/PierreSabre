@@ -22,7 +22,7 @@ public class Humain {
 		return argent;
 	}
 	
-	private void parler(String texte) {
+	protected void parler(String texte) {
 		System.out.println(texte);
 	}
 	
@@ -35,11 +35,11 @@ public class Humain {
 		parler("Mmmm, un bon verre de " + boissFav + "! GLOUPS !");
 	}
 	
-	private void gagnerArgent(int gain) {
+	protected void gagnerArgent(int gain) {
 		argent += gain;
 	}
 	
-	private void perdreArgent(int perte) {
+	protected void perdreArgent(int perte) {
 		argent -= perte;
 	}
 	
