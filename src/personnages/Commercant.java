@@ -8,8 +8,12 @@ public class Commercant extends Humain {
 	public int seFaireExtorquer() {
 		parler("Le monde est vraiment trop injuste !");
 		int argentPerdu = getArgent();
-		perdreArgent(argentPerdu);
-		return argentPerdu;
+		if (argentPerdu > 0) {
+			perdreArgent(argentPerdu);
+			return argentPerdu;
+		}
+		return 0;
+		
 	}
 	
 	public void recevoir(int gain) {

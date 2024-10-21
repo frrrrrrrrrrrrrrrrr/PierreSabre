@@ -25,6 +25,9 @@ public class HistoireTP4 {
 		yaku.extorquer(marco);
 		
 		Ronin roro = new Ronin("Roro", 60, "shochu");
+		roro.direBonjour();
 		roro.donner(marco);
+		
+		roro.provoquer(yaku);
 	}
 }
