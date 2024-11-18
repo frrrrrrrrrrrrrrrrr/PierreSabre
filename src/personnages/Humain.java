@@ -1,11 +1,15 @@
 package personnages;
 
+
+
 public class Humain {
+	private static final int TAILLE_MEME = 30;
+	
 	private String nom;
-	private String boissFav = "cafï¿½";
+	private String boissFav = "café";
 	private int argent;
 	protected  int nbConnaissances;
-	protected Humain[] memoire = new Humain[30];
+	protected Humain[] memoire = new Humain[TAILLE_MEME];
 	
 	
 	public Humain( String nom, int argent, String boissFav) {
@@ -66,14 +70,14 @@ public class Humain {
 	}
 	
 	private void memoriser(Humain humain) {
-		if(nbConnaissances <29) {
+		if(nbConnaissances < TAILLE_MEME) {
 			memoire[nbConnaissances] = humain;
 			nbConnaissances ++;
 		}else {
 			for(int i=0; i<nbConnaissances; i++) {
 				memoire[i] = memoire[i+1];
 			}
-			memoire[nbConnaissances] = humain;
+			memoire[nbConnaissances - 1] = humain;
 		}
 	}
 	
@@ -85,7 +89,14 @@ public class Humain {
 		
 	}
 	
-	public void listerConnaissances() {
+	public void listerConnaissances(){
+		String aDire = "Je connais beaucoup de monde :";
+		
+		for(int i=0; i<nbConnaissances; i++){
+			aDire += memoire[i];
+		}
+		
+		parler(aDire);
 		
 	}
 	
