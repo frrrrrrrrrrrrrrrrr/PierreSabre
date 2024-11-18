@@ -2,8 +2,10 @@ package personnages;
 
 public class Humain {
 	private String nom;
-	private String boissFav = "café";
+	private String boissFav = "cafï¿½";
 	private int argent;
+	protected  int nbConnaissances;
+	protected Humain[] memoire = new Humain[30];
 	
 	
 	public Humain( String nom, int argent, String boissFav) {
@@ -53,14 +55,38 @@ public class Humain {
 	public int acheter(String bien, int prix) {
 		
 		if(argent -prix < 0) {
-			parler("Je n'ai que  " + argent + " sous en poche, je ne peux plus m'offrir " + bien + " à " + prix + " sous.");
+			parler("Je n'ai que  " + argent + " sous en poche, je ne peux plus m'offrir " + bien + " ï¿½ " + prix + " sous.");
 			return -1;
 		}
 		else {
-			parler("J'ai " + argent + " sous en poche. Je vais pouvoir m'offrir " + bien + " à " + prix + " sous ");
+			parler("J'ai " + argent + " sous en poche. Je vais pouvoir m'offrir " + bien + " ï¿½ " + prix + " sous ");
 			perdreArgent(prix);
 			return 0;
 		}
+	}
+	
+	private void memoriser(Humain humain) {
+		if(nbConnaissances <29) {
+			memoire[nbConnaissances] = humain;
+			nbConnaissances ++;
+		}else {
+			for(int i=0; i<nbConnaissances; i++) {
+				memoire[i] = memoire[i+1];
+			}
+			memoire[nbConnaissances] = humain;
+		}
+	}
+	
+	public void faireConnaissanceAvec(Humain autreHumain) {
+		direBonjour();
+		autreHumain.direBonjour();
+		memoriser(autreHumain);
+		autreHumain.memoriser(this);
+		
+	}
+	
+	public void listerConnaissances() {
+		
 	}
 	
 	
