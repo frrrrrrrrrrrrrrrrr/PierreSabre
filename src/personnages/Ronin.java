@@ -21,13 +21,14 @@ public class Ronin extends Humain {
 		if(adversaire.getReputation() <= force) {
 			somme = adversaire.perdre();
 			gagnerArgent(somme);
+			honneur++;
 			parler("Je t’ai eu petit yakusa!");
 		}
 		else {
 			somme = getArgent();
 			perdreArgent(somme);
 			adversaire.gagner(somme);
-			honneur -= 1;
+			honneur--;
 			parler(" J'ai perdu contre ce yakuza, mon honneur et ma bourse ont en pris un coup.");
 			
 		}

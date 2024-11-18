@@ -6,7 +6,7 @@ public class Humain {
 	private static final int TAILLE_MEME = 30;
 	
 	private String nom;
-	private String boissFav = "café";
+	private String boissFav;
 	private int argent;
 	protected  int nbConnaissances;
 	protected Humain[] memoire = new Humain[TAILLE_MEME];
@@ -90,13 +90,14 @@ public class Humain {
 	}
 	
 	public void listerConnaissances(){
-		String aDire = "Je connais beaucoup de monde :";
+		StringBuilder aDire = new StringBuilder();
 		
-		for(int i=0; i<nbConnaissances; i++){
-			aDire += memoire[i];
+		for(int i=0; i<nbConnaissances -1; i++){
+			aDire.append(memoire[i].getNom() + ",");
 		}
+		aDire.append(memoire[nbConnaissances -1].getNom());
 		
-		parler(aDire);
+		parler("Je connais beaucoup de monde :" + aDire);
 		
 	}
 	
